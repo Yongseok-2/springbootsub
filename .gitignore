@@ -1,0 +1,62 @@
+### Java ###
+*.class
+*.war
+*.ear
+*.iml
+
+### Package Files ###
+*.jar
+*.zip
+*.tar.gz
+*.rar
+
+### Logs ###
+*.log
+logs/
+log/
+
+### OS ###
+.DS_Store
+Thumbs.db
+
+### Build ###
+/target/
+/build/
+/out/
+/bin/
+
+### Gradle ###
+.gradle/
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+### Maven ###
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+.mvn/wrapper/MavenWrapperDownloader.java
+
+### IDEs ###
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# Eclipse
+.project
+.classpath
+.settings/
+.apt_generated/
+.factorypath
+
+# Profiles (예: local/dev/test/prod)
+application-local.*
+application-dev.*
+application-test.*
+application-prod.*
+
+### Others ###
+node_modules/

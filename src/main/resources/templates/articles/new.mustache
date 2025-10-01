@@ -1,0 +1,17 @@
+{{>layouts/header}}
+
+<div class="container mt-5">
+    <form action="/articles/create" method="POST" class="p-4 border rounded shadow-sm bg-light">
+        <div class="mb-3">
+            <label for="title" class="form-label">제목</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력하세요">
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">내용</label>
+            <textarea class="form-control" id="content" name="content" rows="5" placeholder="내용을 입력하세요"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">전송</button>
+    </form>
+</div>
+
+{{>layouts/footer}}
