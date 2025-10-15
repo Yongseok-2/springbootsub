@@ -1,0 +1,22 @@
+{{>layouts/header}}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                {{ #article }}
+                <div class="card-header bg-primary text-white">
+                    <h4> {{ id }}번 게시글 상세보기</h4>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title" >제목 : {{ title }}</h5>
+                    <p class="card-text" >내용 : {{ content }}</p>
+                </div>
+                {{ /article }}
+            </div>
+            <a href="/articles/new" class="btn btn-secondary mt-3">목록으로 돌아가기</a>
+        </div>
+    </div>
+</div>
+
+{{>layouts/footer}}
