@@ -31,7 +31,7 @@ public class ArticleController {
         log.info(form.toString());
         Article saved = articleService.saveArticle(form);
         Long id = saved.getId();
-        return "article/" + id.toString();
+        return "redirect:/article/" + id;
     }
 
     @GetMapping("/article/{id}")
