@@ -1,0 +1,39 @@
+{{>layouts/header}}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4>게시글 목록</h4>
+                </div>
+                <div class="card-body">
+                    <!-- 게시글 목록을 테이블로 출력 -->
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>제목</th>
+                            <th>내용</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#articleList}}
+                        <tr>
+                            <td>{{ id }}</td>
+                            <td><a href="/article/{{ id }}" class="text-black text-decoration-none">{{ title }}</a></td>
+                            <td>{{ content }}</td>
+                        </tr>
+                        {{/articleList}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <a href="/articles/new" class="btn btn-primary mt-3">새 게시글 작성</a>
+        </div>
+    </div>
+</div>
+
+
+
+{{>layouts/footer}}

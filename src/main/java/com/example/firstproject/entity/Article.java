@@ -7,12 +7,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @Entity
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Setter
 public class Article {
     @Id
     @GeneratedValue
