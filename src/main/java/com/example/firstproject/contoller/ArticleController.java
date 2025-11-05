@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
 
@@ -43,7 +44,7 @@ public class ArticleController {
         return "articles/viewArticle";
     }
 
-    @GetMapping("/articles/index")
+    @GetMapping("/articles/main")
     public String index(Model model) {
         ArrayList<Article> articleList = (ArrayList<Article>)articleRepository.findAll();
 
@@ -58,9 +59,31 @@ public class ArticleController {
         return "articles/edit";
     }
 
-    @PatchMapping("article/edit")
-    public String edit(@RequestBody ArticleForm form) {
+    @PostMapping("article/update")
+    public String update(ArticleForm form) {
+        log.info(form.toString());
+        Article articleEntity = form.toEntity();
+        log.info(articleEntity.toString());
 
-        return "";
+        Article target = articleRepository.findById(articleEntity.getId()).orElse(null);
+
+        if(target != null) {
+            articleRepository.save(articleEntity);
+        }
+
+        return "redirect:/article/" + articleEntity.getId();
     }
+
+    @GetMapping("/articles/{id}/delete")
+    public String delete(@PathVariable Long id, RedirectAttributes attributes) {
+
+        Article target = articleRepository.findById(id).orElse(null);
+
+        if(target != null) {
+            articleRepository.delete(target);
+            attributes.addFlashAttribute("msg","삭제되었습니다");
+        }
+        return "redirect:/articles/main";
+    }
+
 }

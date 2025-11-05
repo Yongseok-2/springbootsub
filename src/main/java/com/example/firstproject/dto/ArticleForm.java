@@ -9,12 +9,13 @@ import lombok.*;
 @Getter
 @Setter
 public class ArticleForm {
+    private Long id;
     private String title;
     private String content;
 
     public Article toEntity() {
         return new Article(
-                null, // id는 null로 설정 (자동 생성)
+                this.id,
                 this.title,
                 this.content
         );
